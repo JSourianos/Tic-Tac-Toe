@@ -1,0 +1,75 @@
+body {
+    text-align: center;
+    background: #f1faee;
+    font-family: 'Peddana', serif;
+    
+}
+
+#player-output{
+    width: 33%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    border: 1px solid black;
+}
+
+.play{
+    width: 4rem;
+    height: 4rem;
+    padding: 1rem;
+    margin: 0.2rem;
+    background: #1d3557;
+
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.game-board{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.button{
+    margin: 2rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.35rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    cursor: pointer;
+    background-color: #2ecc71;
+    color: #ecf0f1;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.button:hover{
+    box-shadow: 0 4px 9px rgba(0, 0, 0, .6);
+}
+
+#add-player-form{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin: 0 auto;
+    text-align: left;
+    border: 1px solid black;
+    padding: 1rem;
+    background: #1d3557;
+    color: white;
+}
+
+label{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.player-input{
+    padding: 0.35rem;
+    
+}
