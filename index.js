@@ -4,11 +4,9 @@ const gameBoard = (() => {
 
     const gameArray = ['', '', '', '', '', '', '', '', ''];
     const columns = document.querySelectorAll('.play');
+
     let moves = 0;
-
     let gameOver = false;
-
-
 
 
     const revealBoard = () => {
@@ -17,6 +15,7 @@ const gameBoard = (() => {
         }
     }
 
+    //This is absolutely disgusting and needs and algorithm
     const endGame = () => {
         //ROWS
         const columnOneFullX = gameArray[0] === "X" && gameArray[1] === "X" && gameArray[2] === "X";
@@ -108,10 +107,7 @@ const gameBoard = (() => {
 
     }
 
-
-
     return {
-        //revealBoard: revealBoard,
         columns: columns,
         gameArray: gameArray,
         revealBoard: revealBoard,
@@ -121,7 +117,6 @@ const gameBoard = (() => {
 
     }
 })();
-
 
 
 // ********************* PLAYER LOGIC ************************
@@ -144,25 +139,14 @@ const player = (() => {
 
     const addPlayers = (event) => {
         event.preventDefault();
-
-
-
-        console.log(playerOne, playerTwo)
+        
         if(playerOne.value === "" && playerTwo.value === ""){
             alert("you must input both names!")
         } else {
             outputPlayers(playerOne.value, playerTwo.value);
             playerFormDiv.classList.toggle("hidden");
         }
-
-       
-
-        
-
     }
-
-
-
 
     const resetButton = document.getElementById("reset-button");
     resetButton.addEventListener('click', () => {
@@ -173,26 +157,18 @@ const player = (() => {
         window.location.reload();
     });
 
-
-
-
     const addXorY = () => {
         //We need to link the ID of the board which is clicked, to where we will put the X or O in the array.
         //id = array[id]
         let switchSign = true;
 
-
-
-
         for (let i = 0; i < gameBoard.columns.length; i++) {
 
             let id = document.getElementById(i).id;
 
-
-
             //For next: try to move the switchplayer, and remove the event listener in some other function.
             gameBoard.columns[i].addEventListener('click', function switchPlayer() {
-
+                
                 if (gameBoard.gameArray[i] === "X" || gameBoard.gameArray[i] === "O") {
                     return;
                 } else {
@@ -208,26 +184,15 @@ const player = (() => {
                     }
                 }
 
-
                 if (gameBoard.gameOver === true) {
                     gameBoard.columns.removeEventListener('click');
                 }
 
                 gameBoard.revealBoard();
                 gameBoard.endGame();
-
-                console.log(gameBoard.gameOver)
-
-                //This is where the logic for X or O is needed. 
-                console.log(gameBoard.gameArray)
-
-                //console.log(gameBoard.moves);
             })
         }
     }
-
-    //Reset logic
-
 
     return {
         addXorY: addXorY,
@@ -235,19 +200,14 @@ const player = (() => {
         playerOne: playerOne,
         playerTwo: playerTwo,
     }
-
-
-
 })();
 
 // ****************** DISPLAY *************************
 const displayController = (() => {
 
-    //gameBoard.revealBoard();
-
     player.addXorY();
-
     gameBoard.endGame();
+
 })();
 
 
