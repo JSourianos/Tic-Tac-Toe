@@ -148,15 +148,16 @@ const player = (() => {
 
 
         console.log(playerOne, playerTwo)
-        outputPlayers(playerOne.value, playerTwo.value);
+        if(playerOne.value === "" && playerTwo.value === ""){
+            alert("you must input both names!")
+        } else {
+            outputPlayers(playerOne.value, playerTwo.value);
+            playerFormDiv.classList.toggle("hidden");
+        }
 
        
 
-        playerFormDiv.classList.toggle("hidden");
         
-        playerOne.value = "";
-        playerTwo.value = "";
-
 
     }
 
@@ -167,6 +168,8 @@ const player = (() => {
     resetButton.addEventListener('click', () => {
 
         gameBoard.gameArray = ['', '', '', '', '', '', '', '', ''];
+        playerOne.value = "";
+        playerTwo.value = "";
         window.location.reload();
     });
 
